@@ -1,0 +1,57 @@
+{% extends "admin/layout3.html" %}
+{% block content %}
+	<div class="row">
+       <div class="col-3">
+            <div class="bg-light border-right py-2" id="sidebar-wrapper">
+            	<a href="{{ url_for('event') }}" class="list-group-item list-group-item-action bg-light">Event Blog</a>
+                <a href="{{ url_for('blog_post') }}" class="list-group-item list-group-item-action bg-light">Post Blog</a>
+            </div>
+        </div>
+	    <div class="col-8 ml-auto mr-auto">
+	        <form method="POST" action="" enctype="multipart/form-data">
+	            {{ form.hidden_tag() }}
+	                <legend class="border-bottom mb-4">Event Blog</legend>
+	                <div class="form-group">
+	                    {{ form.title.label(class="form-control-label") }}
+	                    {% if form.title.errors %}
+	                        {{ form.title(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.title.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.title(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+	                <div class="form-group">
+	                    {{ form.content.label(class="form-control-label") }}
+	                    {% if form.content.errors %}
+	                        {{ form.content(class="form-control form-control-lg is-invalid") }}
+	                        <div class="invalid-feedback">
+	                            {% for error in form.content.errors %}
+	                                <span>{{ error }}</span>
+	                            {% endfor %}
+	                        </div>
+	                    {% else %}
+	                        {{ form.content(class="form-control form-control-lg") }}
+	                    {% endif %}
+	                </div>
+	                <div class="form-group">
+	                    {{ form.bimage.label() }}
+	                    {{ form.bimage(class="form-control-file") }}
+	                     {% if form.bimage.errors %}
+	                     	{% for error in form.bimage.errors %}
+                                <span class="text-danger">{{ error }}</span></br>
+                            {% endfor %}
+	                     {% endif %}
+	                </div>
+	            <div class="form-group">
+	                {{ form.submit(class="btn btn-outline-info") }}
+	            </div>
+	        </form>
+	    </div>
+	 </div>
+
+
+{% endblock content %}

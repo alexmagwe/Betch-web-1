@@ -1,0 +1,22 @@
+{% extends "admin/layout3.html" %}
+{% block content %}
+    <div class="col-sm-3">
+        <div class="bg-light border-right py-2" id="sidebar-wrapper">
+        	<a href="{{ url_for('requests') }}" class="list-group-item list-group-item-action bg-light">Requests</a>
+            <a href="{{ url_for('comments') }}" class="list-group-item list-group-item-action bg-light">Comments</a>
+        </div>
+    </div>
+    <div class="col-8 ml-auto mr-auto">
+        {% for request in requests %}
+           <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ request.name }}</a>
+              <small class="text-muted">{{ request.date_posted }}</small>
+            </div>
+            <p class="article-content">{{ request.comment }}</p>
+          </div>
+        </article>
+        {% endfor %}
+    </div>
+{% endblock content %}

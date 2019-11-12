@@ -1,0 +1,27 @@
+{% extends "layout1.html" %}
+{% block content %}
+    <div class="row border border-light mr-auto ml-auto mt-1">
+       <div class="col-sm-3">
+            <div class="bg-light border-right py-2" id="sidebar-wrapper">
+                {% for category in categorys %}
+                <a href="#" class="list-group-item list-group-item-action bg-light">{{ category.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-9 col-xs-11" id="main">
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="{url_for('static/images', filename='tech20.jpg')}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ component.name }}</h5>
+                    <h6 class="card-title">{{ component.value }}</h6>
+                    <p class="card-text">{{ component.description }}</p>
+                    <label>Set Quantity</label>
+                    <input class="form-control border-secondary py-1 mb-1 mt-1 mr-auto ml-auto">
+                    <a href="#" class="btn btn-primary">Request Component</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

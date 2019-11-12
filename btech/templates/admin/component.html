@@ -1,0 +1,71 @@
+{% extends "admin/layout3.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-3">
+        <div class="bg-light border-right py-2" id="sidebar-wrapper">
+            {% for category in categorys %}
+                <a href="" class="list-group-item list-group-item-action bg-light">{{ category.name }}</a>
+            {% endfor %}
+        </div>  
+        </div>
+        <div class="col-8 ml-auto mr-auto">
+            <form method="POST" action="" enctype="mutipart/form-data">
+                {{ form.hidden_tag() }}
+                    <legend class="border-bottom mb-4">Create Component</legend>
+                    <div class="form-group">
+                        {{ form.image.label() }}
+                        {{ form.image(class="form-control-file") }}
+                         {% if form.image.errors %}
+                         	{% for error in form.image.errors %}
+                                <span class="text-danger">{{ error }}</span></br>
+                            {% endfor %}
+                         {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.name.label(class="form-control-label") }}
+                        {% if form.name.errors %}
+                            {{ form.name(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.name(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                   	<div class="form-group">
+                        {{ form.value.label(class="form-control-label") }}
+                        {% if form.value.errors %}
+                            {{ form.value(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.value.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.value(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.description.label(class="form-control-label") }}
+                        {% if form.description.errors %}
+                            {{ form.description(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.description.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.description(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock content %}

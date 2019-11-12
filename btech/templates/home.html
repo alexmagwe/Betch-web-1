@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	{% for post in posts %}
+		<section class="text-center my-5 ">
+		  <!-- Section heading -->
+		  <!-- Grid row -->
+			<div class="card border border-bottom py2 ">
+				<div class="card-header bg-dark">
+					<h3 class="float-left ml-5 font-weight-bold text-light ">Semester Events</h>
+				</div>
+			  <div class="card-body">
+				  <div class="row">
+
+				    <!-- Grid column -->
+				    <div class="mr-auto ml-auto">
+
+				      <!-- Featured image -->
+				      <div class="view overlay rounded z-depth-2 mb-4">
+				        <div class="img-fluid" id="event" alt="Sample image">
+					        <a>
+					          <div class="mask rgba-white-slight"></div>
+					        </a>
+					        <h4 class="font-weight-bold mb-3"><strong>{{ post.title }}</strong></h4>
+						    <!-- Post data -->
+						    <p>by <a class="font-weight-bold">{{ post.author.username }}</a><small>{{ post.date_posted.strftime('%Y-%m-%d') }}</small></p>
+						    <!-- Excerpt -->
+						    <p class="dark-grey-text">{{ post.content }}</p>
+						    <!-- Read more button -->
+						    <a class="btn btn-pink btn-rounded btn-md">Read more</a>
+						</div>
+				      </div>
+				      <!-- Post title -->
+				    </div>
+				    <!-- Grid column -->
+				  </div>
+				</div>
+			</div>
+		</section>
+	{% endfor %}
+	
+	<!-- Section: Blog v.2 -->
+	<!-- Section: Blog v.3 -->
+
+	<div class="card border border-bottom py2">
+		<div class="card-header bg-dark">
+			<h3 class="float-left font-weight-bold ml-5 text-light">Recent posts</h3>
+		</div>
+	</div>
+		{% for post in posts %}
+		  	<div class="card-body">
+			  
+			  <!-- Grid row -->
+			  <div class="row">
+
+			    <!-- Grid column -->
+			    <div class="col-lg-7 col-xl-8">
+
+			      <!-- Post title -->
+			      <p>Post by <a class="font-weight-bold">{{ post.author.username }}</a><small>{{ post.date_posted.strftime('%Y-%m-%d') }}</small></p>
+			      <h3 class="font-weight-bold mb-3"><strong>{{ post.title }}</strong></h3>
+			      <!-- Excerpt -->
+			      <p class="dark-grey-text">{{ post.content }}</p>
+			      <!-- Post data -->
+			      <!-- Read more button -->
+			      <a class="btn btn-secondary btn-md">Read more</a>
+
+			    </div>
+			    <!-- Grid column -->
+
+			    <!-- Grid column -->
+			    <div class="col-lg-5 col-xl-4">
+
+			      <!-- Featured image -->
+			      <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+			        <img class="img-fluid" src="{{ url_for('static', filename='blog_image/' + post.bimage) }}" alt="Sample image">
+			        <a>
+			          <div class="mask rgba-white-slight"></div>
+			        </a>
+			      </div>
+
+			    </div>
+			    <!-- Grid column -->
+
+			  </div>
+			  <!-- Grid row -->
+
+			  <hr class="my-5">
+
+			  <!-- Grid row -->
+		{% endfor %}
+{% endblock content %}
