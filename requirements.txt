@@ -40,6 +40,5 @@ virtualenv==16.6.1
 wcwidth==0.1.7
 Werkzeug==0.15.5
 WTForms==2.2.1
-wxPython==3.0.2.0
 wxPython-common==3.0.2.0
 zipp==0.5.1
