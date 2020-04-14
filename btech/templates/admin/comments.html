@@ -2,8 +2,8 @@
 {% block content %}
     <div class="col-sm-3">
         <div class="bg-light border-right py-2" id="sidebar-wrapper">
-        	<a href="{{ url_for('requests') }}" class="list-group-item list-group-item-action bg-light">Requests</a>
-            <a href="{{ url_for('comments') }}" class="list-group-item list-group-item-action bg-light">Comments</a>
+        	<a href="{{ url_for('store.requests') }}" class="list-group-item list-group-item-action bg-light">Requests</a>
+            <a href="{{ url_for('comments.comments') }}" class="list-group-item list-group-item-action bg-light">Comments</a>
         </div>
     </div>
     <div class="col-8 ml-auto mr-auto">

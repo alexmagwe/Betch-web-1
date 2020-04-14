@@ -13,12 +13,9 @@ def load_user(user_id):
 class User(db.Model, UserMixin):
 	id = db.Column(db.Integer, primary_key = True, autoincrement = True)
 	surname = db.Column(db.String(20), nullable=True)
-	other_names = db.Column(db.String(40), nullable=True)
 	username = db.Column(db.String(20), nullable=True)
 	email = db.Column(db.String(120), unique=True, nullable=False)
-	reg_number = db.Column(db.String(40), unique=True)
-	course_id = db.Column(db.String(20), nullable=True)
-	level = db.Column(db.Integer, nullable=True)
+	reg_number = db.Column(db.String(60), unique=True)
 	password = db.Column(db.String(60), nullable=False)
 	is_admin = db.Column(db.Boolean, default=False)
 	requests = db.relationship('Request', backref='name', lazy=True)
@@ -26,7 +23,7 @@ class User(db.Model, UserMixin):
 	
 
 	def __repr__(self):
-		return f"User('{self.surname}','{self.other_names}','{self.email}','{self.reg_number}','{self.course_id}','{self.level}',{self.username})"
+		return f"User('{self.surname}',{self.email}','{self.reg_number}',{self.username})"
 
 
 class Post(db.Model):
@@ -90,7 +87,7 @@ class Permissions(ModelView):
 		if current_user.is_admin == True:
 			return current_user.is_authenticated
 		else:
-			return abort
+			return "abort"
 	def not_auth(self):
 		return " "
 

@@ -23,15 +23,15 @@
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
             <a class="nav-item nav-link font-weight-bold" href="{{ url_for('admin1') }}">Admin</a>
-            <a class="nav-item nav-link" href="{{ url_for('blog_post') }}">Blog</a>
-            <a class="nav-item nav-link" href="{{ url_for('component') }}">Create Component</a>
-            <a class="nav-item nav-link" href="{{ url_for('admin') }}">Database</a>
-            <a class="nav-item nav-link" href="{{ url_for('add_admin') }}">Add Admin</a>
+            <a class="nav-item nav-link" href="{{ url_for('blogs.blog_post') }}">Blog</a>
+            <a class="nav-item nav-link" href="{{ url_for('store.component') }}">Create Component</a>
+            <a class="nav-item nav-link" href="{{ url_for('admins.admin') }}">Database</a>
+            <a class="nav-item nav-link" href="{{ url_for('admins.add_admin') }}">Add Admin</a>
           </div>
           <!-- Navbar Right Side -->
            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="{{ url_for('homepage') }}">Home</a>
-              <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+              <a class="nav-item nav-link" href="{{ url_for('main.homepage') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
             </div>
         </div>
       </div>
