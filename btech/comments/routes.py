@@ -15,7 +15,7 @@ def contact_us():
 		db.session.add(notification)
 		db.session.commit()
 		flash(f'Thank you for your feedback', 'success')
-		return redirect(url_for('homepage'))
+		return redirect(url_for('main.homepage'))
 	return render_template('contact_us.html', title='Contact Us', form=form)
 
 

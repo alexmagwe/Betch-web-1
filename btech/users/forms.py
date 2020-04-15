@@ -4,10 +4,9 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from btech.models import User
 
 
-
-
 class RegisterForm(FlaskForm):
 	surname = StringField('Surname', validators=[DataRequired(), Length(min=3, max=20)])
+	email = StringField('Email', validators=[DataRequired(), Email()])
 	reg_number = StringField('Reg_number', validators=[DataRequired()])
 	password = PasswordField('Password', validators=[DataRequired()])
 	confirm_password =	PasswordField('ConfirmPassword', validators=[DataRequired(), EqualTo('password')])

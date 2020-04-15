@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="navbarToggle">
         <div class="navbar-nav mr-auto">
           <a class="nav-item nav-link" href="{{ url_for('main.homepage') }}">Home</a>
-          <a class="nav-item nav-link" href="{{ url_for('store.store') }}">Store</a>
+          <a class="nav-item nav-link" href="{{ url_for('store.store_search') }}">Store</a>
           <a class="nav-item nav-link" href="{{ url_for('comments.contact_us') }}">Contact Us</a>
           {% if current_user.is_admin == True %}
           <a class="nav-item nav-link" href="{{ url_for('admins.admin1') }}">Admin</a>
@@ -46,7 +46,9 @@
   </nav>
  
     <main role="main" class=" col-12 ml-auto mr-auto">
-        <div >
+      
+          {% block content %}
+            <div >
           {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
               {% for category, message in messages %}
@@ -56,7 +58,11 @@
               {% endfor %}
             {% endif %}
           {% endwith %}
-          {% block content %}{% endblock %}
+          {% block page_content %}
+        
+          {% endblock %}
+        
+          {% endblock %}
         </div>
     </main>
     <!-- Footer -->
@@ -64,7 +70,7 @@
       <div class="card clearfix">
         <div class="card border border-bottom py-2">
           <h3 class="font-weight-bold mr-auto ml-5">About Us</h3>
-          <p>We are a technological communiuty made up of divesre scientific fields and fauclties</p>
+          <p>We are a technological community made up of divesre scientific fields and fauclties</p>
         </div>
         <div class="card border border-bottom py-2">
           <h3 class="font-weight-bold mr-auto ml-5">Contact Us On</h3>
