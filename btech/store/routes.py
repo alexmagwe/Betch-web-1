@@ -1,17 +1,15 @@
 import secrets
 import os
-from flask import render_template, url_for, flash, redirect, request, Blueprint
+from flask import render_template, url_for, flash, redirect, request
 from btech import db, bcrypt
 from btech.models import User, Post, Component, Category, Notification, Request, Permissions
 from btech.store.forms import RequestForm, PostComponentForm, SearchForm
 from flask_login import login_user, current_user, logout_user, login_required
-
-
-store = Blueprint('store',__name__)
+from . import store
 
 
 @store.route("/store", methods=['GET','POST'])
-def store():
+def store_search():
 	categorys = Category.query.order_by(Category.id.desc()).all()
 	components = Component.query.order_by(Component.id.desc()).all()
 	form = SearchForm()
@@ -25,7 +23,7 @@ def save_image(form_image):
 	random_hex = secrets.token_hex(8)
 	_, f_ext = os.path.splitext(form_image.filename)
 	picture_fn = random_hex + f_ext
-	picture_path = os.path.join(app.root_path, 'static/comp_image', picture_fn)
+	picture_path = os.path.join(Store.root_path, 'static/comp_image', picture_fn)
 	form_image.save(picture_path)
 	return picture_fn
 
@@ -39,15 +37,14 @@ def component():
 		component = Component(name=form.name.data, value=form.value.data, description=form.description.data, image = image_file)
 		db.session.add(component)
 		db.session.commit()
-		flash(f'Uplaod succesfully', 'success')
-		return redirect(url_for('home'))
+		flash(f'Upload succesfully', 'success')
+		return redirect(url_for('home'))	
 	return render_template('admin/component.html', title='Create Component', form=form, categorys = categorys)
 
 
 
 
-
-@app.route("/requests")
+@store.route("/request")
 def requests():
 	items = Request.query.all()
 	return render_template('admin/request.html', title='Request Posted', items=items)

@@ -4,7 +4,6 @@ from flask_login import UserMixin, LoginManager, current_user
 from flask_admin.contrib.sqla import ModelView
 
 
-
 @login_manager.user_loader
 def load_user(user_id):
 	return User.query.get(int(user_id))

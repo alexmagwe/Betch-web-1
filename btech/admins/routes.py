@@ -1,12 +1,11 @@
 
 import secrets
-from flask import render_template, url_for, flash, redirect, request, Blueprint
+from flask import render_template, url_for, flash, redirect, request
 from btech import db, bcrypt, admin
 from btech.models import User, Permissions
 from btech.admins.forms import LoginForm, AddAdminForm, RegisterAdminForm
 from flask_login import login_user, current_user, logout_user, login_required
-
-admins = Blueprint('admins',__name__)
+from . import admins
 
 
 @admins.route("/admin1")
@@ -32,7 +31,7 @@ def admin_register():
 		db.session.add(user)
 		db.session.commit()
 		flash(f'Registered succesfully', 'success')
-		return redirect(url_for('login'))
+		return redirect(url_for('user.login'))
 	return render_template('admin/admin_register.html', title = 'Register as Admin', form=form)
 
 
