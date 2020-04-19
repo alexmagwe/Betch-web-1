@@ -7,6 +7,7 @@ blinker==1.4
 blueprint==3.4.2
 cffi==1.14.0
 click==7.1.1
+cryptography==2.9
 dominate==2.5.1
 Flask==1.1.2
 Flask-Admin==1.5.6
@@ -20,8 +21,10 @@ Flask-SQLAlchemy==2.4.1
 Flask-WTF==0.14.3
 itsdangerous==1.1.0
 Jinja2==2.11.2
+jwt==1.0.0
 Mako==1.1.2
 MarkupSafe==1.1.1
+Pillow==7.1.1
 pkg-resources==0.0.0
 pycparser==2.19
 python-dateutil==2.8.1
