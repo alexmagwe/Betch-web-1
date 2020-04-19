@@ -26,6 +26,7 @@ def create_app():
     app.config.from_object(configs['development'])
     migrate.init_app(app,db)
     db.init_app(app)
+    bootstrap.init_app(app)
     bcrypt.init_app(app)
     mail.init_app(app)
     login_manager.init_app(app)
@@ -38,10 +39,10 @@ def create_app():
     from btech.main import main
     from btech.errors.handlers import errors
     app.register_blueprint(errors)
-    app.register_blueprint(admins)
-    app.register_blueprint(blogs)
+    app.register_blueprint(admins,url_prefix='/admin')
+    app.register_blueprint(blogs,url_prefix='/blog')
     app.register_blueprint(users)
-    app.register_blueprint(store)
+    app.register_blueprint(store,url_prefix='/store')
     app.register_blueprint(comments)
     app.register_blueprint(main)
 

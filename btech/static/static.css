@@ -1,23 +1,13 @@
-h2
-{	
-	margin-top: 100px;
-	margin-bottom: 200px;
-	color: aliceblue;
-	text-align: center;
+#content {
+    text-align: center;
+    color: aliceblue;
+    margin-top: 10;
 }
-#content
-{
-	text-align: center;
-	color: aliceblue;
-	margin-top: 10;
 
-}
-.img
-{
-	height: 981px;
-	background: url('images/tech20.jpg');
-	background-attachment: fixed;
-	background-size: 100% 100%;
-	background-position: center;
-
+.img {
+    height: 981px;
+    background: url('images/tech20.jpg');
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-position: center;
 }

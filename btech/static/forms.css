@@ -1,0 +1,247 @@
+.wrapper {
+    width: 40%;
+    margin: 0;
+    background: #667db6;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    transform-origin: center;
+    /* background-image: url(images/bluecityscape.jpg); */
+    background-attachment: fixed;
+    background-size: 300%;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    padding: 10px 20px;
+    padding-top: 2em;
+    /* box-shadow: -7px -7px 20px 0 rgba(0, 0, 0, 0.7), 7px 7px 20px 0 rgba(0, 0, 0, 0.7); */
+}
+
+.signup {
+    text-align: center;
+    font-size: 2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+}
+
+#background-img {
+    position: absolute;
+    z-index: -1;
+    background-attachment: fixed;
+    top: 0;
+    left: 0;
+    filter: blur(5px);
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#wrapper:target .wrapper {
+    display: block;
+}
+
+.wrapper h2 {
+    text-align: center;
+    color: inherit;
+    height: 1em;
+    padding: 2em;
+    margin-bottom: 1em;
+}
+
+.input-label {
+    color: inherit;
+    font-size: 26px;
+    font-weight: 700;
+    color: snow;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inputs {
+    font-size: 1.4em;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    height: 30px;
+    border: none;
+    color: #fff;
+    margin-bottom: 0.5em;
+    /* box-shadow: -7px -7px 20px 0 rgba(0, 0, 0, 0.7), 7px 7px 20px 0 rgba(0, 0, 0, 0.2); */
+    border-bottom: 2px solid rgb(168, 162, 162);
+    transition: border 0.4s;
+}
+
+.inputs:focus {
+    border-bottom: 2px solid #fff;
+}
+
+.button {
+    display: block;
+    width: 30%;
+    margin: auto;
+    height: 50px;
+    text-align: center;
+    padding: 0 1em;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #000;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.button:hover {
+    color: #fff;
+}
+
+.forgot-pw {
+    color: inherit;
+}
+
+.lg-rg {
+    color: darkblue;
+}
+
+
+/* #account */
+
+.login-container {
+    width: 40%;
+    backdrop-filter: blur(10px);
+    margin: auto;
+    background: #667db6;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.account-container {
+    color: #111;
+    background: #0f0c29;
+    box-shadow: -7px -7px 20px 0 rgba(0, 0, 0, 0.7), 7px 7px 20px 0 rgba(0, 0, 0, 0.2);
+    width: 50%;
+    margin: auto;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.profile-pic-container {
+    position: relative;
+    width: 100%;
+    background: #000046;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1CB5E0, #000046);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    height: 20em;
+    border-bottom: 2px solid silver;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.profile-pic {
+    transition: 0.4s ease-in;
+    border-radius: 50%;
+    height: 100%;
+}
+
+.usertitle {
+    text-transform: uppercase;
+}
+
+.hide-me {
+    /* position: absolute; */
+    top: 50%;
+    opacity: 1;
+    background-color: transparent;
+    z-index: 1;
+    display: block;
+    cursor: crosshair;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+}
+
+.blog-img {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+
+.file {
+    margin: 0.5em;
+    width: 100%;
+}
+
+@media screen and (max-width:600px) {
+    .profile-pic-container {
+        width: 100%;
+    }
+    .profile-pic {
+        width: 100%;
+    }
+}
+
+
+/* register */
+
+.join-us {
+    /* display: inline-block; */
+    width: 60%;
+    text-align: center;
+    color: #fff;
+    background-image: url(images/bluecityscape.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2em;
+}
+
+.join-us p {
+    color: inherit;
+    margin-top: 20%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    mix-blend-mode: luminosity;
+}
+
+.register-container {
+    display: flex;
+    pointer-events: all;
+    flex-wrap: wrap;
+    z-index: -1;
+}
+
+@media screen and (max-width:600px) {
+    .wrapper {
+        width: 100%;
+    }
+    .join-us {
+        width: 100%;
+        height: 20em;
+    }
+    .join-us p {
+        margin-top: 3 em;
+        font-size: 1.5em;
+    }
+    .register-container {
+        flex-direction: column-reverse;
+    }
+    .account-container {
+        width: 100%;
+    }
+    .login-container {
+        margin-top: 5em;
+        width: 100%;
+    }
+}

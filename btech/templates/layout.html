@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='forms.css') }}">
+
 
     {% if title %}
         <title>BTECH - {{ title }}</title>
@@ -17,7 +19,7 @@
     {% endif %}
 </head>
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-steel mb-0 fixed-top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel mb-0">
     <div class="container">
       <a class="navbar-brand mr-4" href="/">BTECH</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +37,7 @@
         <!-- Navbar Right Side -->
          <div class="navbar-nav">
             {% if current_user.is_authenticated %}
+            <a class="nav-item nav-link" href="{{ url_for('users.account',name=current_user.surname) }}">Account</a>
             <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
             {% else %}
             <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
@@ -65,22 +68,13 @@
           {% endblock %}
         </div>
     </main>
-    <!-- Footer -->
-    <footer class="page-footer font-small blue container-fluid">
-      <div class="card clearfix">
-        <div class="card border border-bottom py-2">
-          <h3 class="font-weight-bold mr-auto ml-5">About Us</h3>
-          <p>We are a technological community made up of divesre scientific fields and fauclties</p>
-        </div>
-        <div class="card border border-bottom py-2">
-          <h3 class="font-weight-bold mr-auto ml-5">Contact Us On</h3>
-          <p>For more information about us find us on;</p>
-        </div>
-        <div class="footer-copyright text-center py-3">© 2018 Copyright:
-          <a href="">BTECH</a>
-        </div>
-      </div>
-    </footer>
+
+  <div class='footer'>
+
+  <small>&copy copyright btech;</small>
+  
+  </div>
+
 <!-- Footer -->
 
     <!-- Optional JavaScript -->

@@ -6,11 +6,11 @@ class Config():
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class Dev_config(Config):
-    MAIL_USE_TLS:True
-    MAIL_PORT=587
-    MAIL_SERVER='smtp.gmail.com'
-    MAIL_USERNAME=os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD')
+    # MAIL_USE_TLS=True
+    MAIL_PORT=8025
+    MAIL_SERVER='localhost'
+    # MAIL_USERNAME=os.environ.get('MAIL_USERNAME')
+    # MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD')
     SQLALCHEMY_DATABASE_URI='sqlite:///'+os.path.join(basedir,'site-db.sqlite')
     DEBUG=True
 class Testing_config(Config):

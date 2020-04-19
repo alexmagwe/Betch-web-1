@@ -1,0 +1,56 @@
+{%extends 'layout.html'%} {%block page_content%}
+
+<!-- <img id='background-img' src="{{url_for('static',filename='images/Glasgow.png')}}"> -->
+
+<div class='register-container'>
+    <div class='wrapper'>
+        <form method='POST' action='' enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+
+            <div>
+                {{form.img.label(class='input-label')}}</br>{{form.img(class='file')}} {%for error in form.img.errors%}
+                <span style="color:red;">{{error}}</span> {%endfor%}
+            </div>
+            <div>
+
+                {{form.surname.label(class="input-label")}} {{form.surname(class='inputs')}} {%for error in form.surname.errors%}
+                <span style="color:red;">{{error}}</span> {%endfor%}
+            </div>
+
+            <div>
+
+                {{form.email.label(class="input-label")}} {{form.email(class='inputs')}} {%for errors in form.email.errors%}
+                <span style="color:red;">{{errors}}</span> {%endfor%}
+            </div>
+            <div>
+                {{ form.reg_number.label(class="input-label") }} {{ form.reg_number(class="inputs") }} {%for error in form.password.errors%}
+                <span style='color:red'>{{error}}</span> {%endfor%}
+
+            </div>
+            <div>
+                {{form.password.label(class="input-label")}} {{form.password(class='inputs')}} {%for error in form.password.errors%}
+                <span style='color:red'>{{error}}</span> {%endfor%}
+
+            </div>
+
+
+            <small>
+            {{form.confirm_password.label(class="input-label")}} {{form.confirm_password(class='inputs')}}
+            {%for error in form.confirm_password.errors%}
+            <span style='color:red'>{{error}}</span>
+            {%endfor%}
+            </small> {{form.submit(class='button')}}
+
+
+        </form>
+        <div>
+
+            <p>Already have an account <a href="{{url_for('users.login')}}" class='lg-rg'>Sign in</a></p>
+
+        </div>
+    </div>
+    <div class='join-us '>
+        <p>Register today and Get Access to Btech resources, projects,events and much more</p>
+    </div>
+</div>
+{%endblock%}

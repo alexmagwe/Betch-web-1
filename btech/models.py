@@ -1,6 +1,11 @@
 from datetime import datetime
-from btech import db, login_manager, admin
+from btech import db, login_manager, admin,bcrypt
 from flask_login import UserMixin, LoginManager, current_user
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer 
+import os
+from flask import current_app as app
+from time import time
+
 from flask_admin.contrib.sqla import ModelView
 
 
@@ -15,6 +20,7 @@ class User(db.Model, UserMixin):
 	username = db.Column(db.String(20), nullable=True)
 	email = db.Column(db.String(120), unique=True, nullable=False)
 	reg_number = db.Column(db.String(60), unique=True)
+	profile_pic=db.Column(db.String(20),default='user.jpg')
 	password = db.Column(db.String(60), nullable=False)
 	is_admin = db.Column(db.Boolean, default=False)
 	requests = db.relationship('Request', backref='name', lazy=True)
@@ -23,8 +29,28 @@ class User(db.Model, UserMixin):
 
 	def __repr__(self):
 		return f"User('{self.surname}',{self.email}','{self.reg_number}',{self.username})"
+	def set_reset_token(self,expires_sec=1800):
+		s=Serializer(app.config['SECRET_KEY'],expires_sec)
+		return s.dumps({'user_id':self.id}).decode('utf-8')  
+  
+	@staticmethod
+	def verify_reset_token(token):
+		s=Serializer(app.config['SECRET_KEY'])
+		try:
+			 user_id=s.loads(token)['user_id']
+		except:
+			return
+		return User.query.get(user_id)
 
-
+	def set_password(self,pswd):
+		self.password=bcrypt.generate_password_hash(pswd).decode('utf-8')
+		return pswd
+	def verify_password(self,password):
+		return bcrypt.check_password_hash(self.password,password)
+		
+  
+     
+		
 class Post(db.Model):
 	id = db.Column(db.Integer, primary_key = True, autoincrement = True)
 	title = db.Column(db.String(20), nullable=False)
